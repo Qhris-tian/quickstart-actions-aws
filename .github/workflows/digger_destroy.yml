@@ -6,11 +6,15 @@ on:
       project:
         description: 'Digger project to perform destroy on'
         required: true
-        default: 'prod'
+        default: 'production'
 
 jobs:
   destroy:
     runs-on: ubuntu-latest
+    concurrency:
+      group: destroy-group
+      cancel-in-progress: true
+
     steps:
     - name: digger destroy
       uses: diggerhq/digger@vLatest
