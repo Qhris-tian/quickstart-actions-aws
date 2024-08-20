@@ -1,3 +1,5 @@
+name: Destroy Project
+
 on:
   workflow_dispatch:
     inputs:
